@@ -3,7 +3,7 @@ const usuario = document.getElementById("email").value
     
 console.log(usuario)
 
-sessionStorage.setItem('usuario', usuario)
+localStorage.setItem('usuario', usuario)
  })
 
-localStorage.clear();
+

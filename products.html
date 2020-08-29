@@ -21,6 +21,13 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id='sesion' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Usuario</a>
+            <a class="dropdown-item" href="#" onclick="localStorage.clear()">Cerrar sesión</a>
+          </div>
       </div>
     </nav>
 
@@ -28,6 +35,46 @@
       <h2>Productos</h2>
       <p class="lead">Acá se encuentra la lista de productos disponibles de esta categoría.</p>
   </div>
+
+  <div class="container">
+    <div class="row">
+        <div class="col text-right">
+            <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                <label class="btn btn-light active" id="ordAsc" >
+                    <input type="radio" name="options" autocomplete="off" checked>Menor precio
+                </label>
+                <label class="btn btn-light" id="ordDesc" >
+                    <input type="radio" name="options" autocomplete="off">Mayor precio
+                </label>
+                <label class="btn btn-light" id="ordByCount" >
+                    <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Relevancia
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-end">
+      <div class="col-md-6"></div>
+        <div class="col-md-6 col-sm-12 mb-1 container">
+          <div class="row container p-0 m-0">
+            <div class="col">
+              <p class="font-weight-normal text-right my-2">Precio</p>
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="min." id="countMin">
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="máx." id="countMax">
+            </div>
+            <div class="col-3 p-0">
+              <div class="btn-group" role="group">
+                <button class="btn btn-light btn-block" id="filterCount">Filtrar</button>
+                <button class="btn btn-link btn-sm" id="clearFilter">Limpiar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
 
     <div class="row">
       <div class="list-group" id="lista">
