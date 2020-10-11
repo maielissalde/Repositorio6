@@ -40,24 +40,88 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      
+
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id='sesion' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Usuario</a>
-          <a class="dropdown-item" href="#" onclick="localStorage.clear()">Cerrar sesión</a>
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" href="login.html" onclick="localStorage.clear()">Cerrar sesión</a>
         </div>
+      </div>
+
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container">
+    <div class="text-center p-4">
+      <h2>Carrito de compras</h2>
+    </div>
+     <!--productos-->
+
+     <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Costo</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody id="cart-products">
+      </tbody>
+    </table>
+
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Tipo de envio</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label" for="gridRadios1">
+              Envio 1
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+            <label class="form-check-label" for="gridRadios2">
+              Envio 2
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" checked>
+            <label class="form-check-label" for="gridRadios3">
+              Envio 3
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+      </div>
+    </div>
+  </form>
+
+    <!--Costos-->
+    <div class="row">
+      <div class="col">
+        <h4 class="mb-3">Costos</h4>
+      <ul class = "list-group mb-3">
+        <li class="list-group-item justify-content-between d-flex"><h5>SubTotal </h5><span id="subtotal"></span></li>
+        <li class="list-group-item justify-content-between d-flex"><h5>Total </h5><span id="total"></span></li>
+      </ul>
+      
     </div>
   </div>
+
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">Comprar</button>
+    </div>
+  </div>
+
+</div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

@@ -22,24 +22,107 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      
+
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id='sesion' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Usuario</a>
-          <a class="dropdown-item" href="#" onclick="localStorage.clear()">Cerrar sesión</a>
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" href="login.html" onclick="localStorage.clear()">Cerrar sesión</a>
         </div>
+      </div>
+
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+  <div class="container mt-5">
+    <div class="text-center p-4">
+      <h2>Descripción del producto</h2>
+      <p class="lead">Encontrarás aquí toda la información del producto.</p>
+      <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea el videojuego
+        seleccionado previamente, siempre se visualizará el presente: <b>Chevrolet Onix Joy</b>.</p>
     </div>
+    <h3 id="autoNombre"></h3>
+    <hr class="my-3">
+    <dl>
+      <dt>Precio</dt>
+      <dd>
+        <p id="autoPrecio"></p>
+      </dd>
+
+      <dt>Descripción</dt>
+      <dd>
+        <p id="autoDescripcion"></p>
+      </dd>
+
+      <dt>Categoría</dt>
+      <dd>
+        <p id="autoCategoria"></p>
+      </dd>
+
+      <dt>Cantidad de vendidos</dt>
+      <dd>
+        <p id="autoVendidos"></p>
+      </dd>
+
+      <dt>Imágenes ilustrativas</dt>
+      <dd>
+        <div class="row text-center text-lg-left pt-2" id="autoImagenes">
+        </div>
+      </dd>
+
+      <dt>Productos relacionados:</dt>
+      <hr class="my-3">
+      <dd>
+        <div class="container-fluid">
+          <div class="row" id="autosRelacionadosContainer">
+          </div>
+        </div>
+      </dd>
+
+      <dt>Comentarios:</dt>
+      <hr class="my-3">
+      <dd>
+        <div class="container-fluid">
+          <div class="row" id="comentarios">
+
+          </div>
+        </div>
+      </dd>
+
+      <div class="row">
+        <div class="col-xs-3">
+
+        </div>
+
+        <form>
+
+          <dt>Dejá tu comentario acá:</dt>
+          <hr class="my-3">
+
+          <div class="form-group">
+            <select class="custom-select custom-select mb-1 .col-xs-3">
+              <option selected>Calificación</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+
+          </div>
+          <div class="form-group">
+            <label>Mensaje</label>
+            <textarea class="form-control" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-default">Enviar</button>
+        </form>
+
+    </dl>
   </div>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">

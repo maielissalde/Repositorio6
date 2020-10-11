@@ -53,27 +53,75 @@
       </div>
 
     </div>
-  </nav>s
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  </nav>
+  <div class="container">
+    <div class="text-center p-4">
+      <h2>Carrito de compras</h2>
+    </div>
+     <!--productos-->
+
+     <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Costo</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody id="cart-products">
+      </tbody>
+    </table>
+
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Tipo de envio</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label" for="gridRadios1">
+              Envio 1
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+            <label class="form-check-label" for="gridRadios2">
+              Envio 2
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" checked>
+            <label class="form-check-label" for="gridRadios3">
+              Envio 3
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+      </div>
+    </div>
+  </form>
+
+    <!--Costos-->
+    <div class="row">
+      <div class="col">
+        <h4 class="mb-3">Costos</h4>
+      <ul class = "list-group mb-3">
+        <li class="list-group-item justify-content-between d-flex"><h5>SubTotal </h5><span id="subtotal"></span></li>
+        <li class="list-group-item justify-content-between d-flex"><h5>Total </h5><span id="total"></span></li>
+      </ul>
+      
     </div>
   </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">Comprar</button>
     </div>
-  </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
   </div>
+
+</div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -86,7 +134,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/my-profile.js"></script>
+  <script src="js/cart-1 4.js"></script>
   <script src="js/retorno.js"></script>
 </body>
 

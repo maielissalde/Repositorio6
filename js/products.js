@@ -1,7 +1,6 @@
 const ascendente = "0aMax";
 const descendente = "maxA0";
 const relevancia = "rel";
-let lista = []
 var ordenados = [];
 let criterio = [];
 let min = undefined
@@ -10,9 +9,7 @@ let max = undefined
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL).then(productos =>{
         if (productos.status === "ok")
-        { lista = productos.data
-        sortProducts(ascendente, lista);
-        }
+        {sortProducts(ascendente, productos.data);}
     });
 });
 
@@ -49,7 +46,7 @@ function showProductsList(array){
         let product = array[i];
 
         html += `
-        <div class="list-group-item list-group-item-action">
+        <a href="product-info.html" class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
                     <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
@@ -64,7 +61,7 @@ function showProductsList(array){
                     <button type="button" class="btn btn-primary" onclick="window.location.href='product-info.html'">Ver más información</button>
                 </div>
             </div>
-        </div>
+        </a>
         `
 
         document.getElementById("lista").innerHTML = html;
@@ -94,20 +91,14 @@ document.getElementById("clearFilter").addEventListener("click", function(){
 
 document.getElementById("filterCount").addEventListener("click", function(){
 
-minP = document.getElementById("countMin").value;
-maxP = document.getElementById("countMax").value;
+    minP = document.getElementById("countMin").value;
+    maxP = document.getElementById("countMax").value;
 
-if ((minP) >= 0){
-    min = minP
-} else {
-    min = 0;
-}
+    if ((minP) >= 0){min = minP} 
+    else {min = 0;}
 
-if ((maxP) >= 0){
-    max = maxP
-} else {
-    max = 400000;
-}
+    if ((maxP) >= 0){max = maxP} else {
+    max = 400000;}
 
-sortProducts(criterio, lista);
+    sortProducts(criterio, lista);
 });
