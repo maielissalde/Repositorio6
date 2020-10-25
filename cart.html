@@ -40,10 +40,11 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      
+
 
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id='sesion' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id='sesion' data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
@@ -58,9 +59,9 @@
     <div class="text-center p-4">
       <h2>Carrito de compras</h2>
     </div>
-     <!--productos-->
+    <!--productos-->
 
-     <table class="table">
+    <table class="table">
       <thead>
         <tr>
           <th scope="col"></th>
@@ -77,51 +78,68 @@
     <fieldset class="form-group">
       <div class="row">
         <legend class="col-form-label col-sm-2 pt-0">Tipo de envio</legend>
-        <div class="col-sm-10">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-            <label class="form-check-label" for="gridRadios1">
-              Envio 1
-            </label>
+        <form onclick="actualizarTotal()">
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="15">
+              <label class="form-check-label" for="gridRadios1">
+                Premium 2-5 dias (15%)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="7">
+              <label class="form-check-label" for="gridRadios2">
+                Express 5-8 dias (7%)
+              </label>sub
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="5">
+              <label class="form-check-label" for="gridRadios3">
+                Estandar 12-15 dias (5%)
+              </label>
+            </div>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-            <label class="form-check-label" for="gridRadios2">
-              Envio 2
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" checked>
-            <label class="form-check-label" for="gridRadios3">
-              Envio 3
-            </label>
-          </div>
-        </div>
+        </form>
       </div>
     </fieldset>
-      </div>
-    </div>
+  </div>
+  </div>
   </form>
 
+
+  <div class="container">
     <!--Costos-->
     <div class="row">
       <div class="col">
         <h4 class="mb-3">Costos</h4>
-      <ul class = "list-group mb-3">
-        <li class="list-group-item justify-content-between d-flex"><h5>SubTotal </h5><span id="subtotal"></span></li>
-        <li class="list-group-item justify-content-between d-flex"><h5>Total </h5><span id="total"></span></li>
-      </ul>
-      
+        <ul class="list-group mb-3">
+          <li class="list-group-item justify-content-between d-flex">
+            <h5>SubTotal </h5><span id="subtotal"></span>
+          </li>
+          <li class="list-group-item justify-content-between d-flex">
+            <h5>Total </h5><span id="total"></span>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+    <hr class="mb-4">
+    <h5 class="mb-3">Modo de pago</h5>
+    <div class="d-block my-3">
+      <div class="row">
+        <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#metodoPago">Selección de método
+          de pago</button>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <button type="submit" class="btn btn-primary" onclick=ultimaVeri()>Comprar</button>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="form-group row">
-    <div class="col-sm-10">
-      <button type="submit" class="btn btn-primary">Comprar</button>
-    </div>
   </div>
 
-</div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -130,6 +148,67 @@
       <div></div>
     </div>
   </div>
+
+  <div class="modal fade" tabindex="-1" role="dialog" id="metodoPago">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Información de pago</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form onsubmit="return validacion()">
+            <hr class="mb-4">
+            <h5 class="mb-3">Método de pago</h5>
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                <input id="TarjetaC" name="publicationType" type="radio" class="custom-control-input">
+                <label class="custom-control-label" for="TarjetaC">Tarjeta de crédito</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="TarjetaD" name="publicationType" type="radio" class="custom-control-input">
+                <label class="custom-control-label" for="TarjetaD">Tarjeta de débito</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="Efectivo" name="publicationType" type="radio" class="custom-control-input" checked="">
+                <label class="custom-control-label" for="Efectivo">Efectivo</label>
+              </div>
+
+              <div class="form-group" id="campos">
+                <label for="T1" class="col-form-label">Nombre completo:</label>
+                <input type="text" class="form-control" id="T1">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="zip">Numero de tarjeta</label>
+                <input type=number class="form-control" id="T2" placeholder="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="zip">Fecha de vencimiento</label>
+                <input type=number class="form-control" id="T3" placeholder="">
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="zip">Código de seguridad</label>
+                <input type=number class="form-control" id="T4" placeholder="">
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <input type="submit" onclick="submit" value="Cerrar" class="btn btn-primary"></input>
+        </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
