@@ -1,18 +1,23 @@
 const ascendente = "0aMax";
 const descendente = "maxA0";
 const relevancia = "rel";
+let lista = []
 var ordenados = [];
 let criterio = [];
 let min = undefined
 let max = undefined
 
+// trae el array con la información y la envía a ordenar de forma ascendente
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL).then(productos =>{
         if (productos.status === "ok")
-        {sortProducts(ascendente, productos.data);}
+        { lista = productos.data
+        sortProducts(ascendente, lista);
+        }
     });
 });
 
+// Ordena el array según costo y cantidad de vendidos y envía a filtrar
 function sortProducts(criterio, array){
      if (criterio === ascendente){
         ordenados = array.sort((a, b) => {
@@ -28,6 +33,7 @@ function sortProducts(criterio, array){
     filtro(ordenados)
 }
 
+// Filtra según precio y envía a mostrar en HTML
 function filtro(){
     let filtrados = [];
     
@@ -39,6 +45,7 @@ function filtro(){
  showProductsList(filtrados)
 }
 
+// Muestra la información en el HTML
 function showProductsList(array){
 
     let html = "";
@@ -46,28 +53,24 @@ function showProductsList(array){
         let product = array[i];
 
         html += `
-        <a href="product-info.html" class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ product.name +`</h4>
-                        <small class="text-muted">` + product.soldCount + ` productos vendidos</small>
-                    </div>
-                    <p>` + product.currency + ` ` + product.cost + `</p>
-                    <p class= "mb-1"> ` + product.description +`</p>
-                    <button type="button" class="btn btn-primary" onclick="window.location.href='product-info.html'">Ver más información</button>
-                </div>
+        <div class="col-4">
+        <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
+            <img class="bd-placeholder-img card-img-top" src="${product.imgSrc}">
+             <h3 class="m-3">${product.name} </h3>
+            <div class="card-body">
+            <p class="card-text">${product.description}</p>
             </div>
+            <h4 class="m-3 text-right">${product.currency + " " + product.cost}</h4>
+            <h5 class="m-3 text-right text-muted">${product.soldCount} Unidades vendidas</h5>
         </a>
+        </div>
         `
 
         document.getElementById("lista").innerHTML = html;
     }
 }
 
+// Según dónde se hace click determinan un criterio y llaman a función de ordenar
 document.getElementById("ordAsc").addEventListener("click", function(){
     criterio = ascendente
     sortProducts(criterio, lista);
@@ -91,14 +94,21 @@ document.getElementById("clearFilter").addEventListener("click", function(){
 
 document.getElementById("filterCount").addEventListener("click", function(){
 
-    minP = document.getElementById("countMin").value;
-    maxP = document.getElementById("countMax").value;
+minP = document.getElementById("countMin").value;
+maxP = document.getElementById("countMax").value;
 
-    if ((minP) >= 0){min = minP} 
-    else {min = 0;}
+if ((minP) >= 0){
+    min = minP
+} else {
+    min = 0;
+}
 
-    if ((maxP) >= 0){max = maxP} else {
-    max = 400000;}
+if ((maxP) >= 0){
+    max = maxP
+} else {
+    max = 400000;
+}
 
-    sortProducts(criterio, lista);
+sortProducts(criterio, lista);
 });
+
